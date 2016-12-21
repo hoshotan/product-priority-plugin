@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
 */
+
 namespace Plugin\ProductPriority;
 
 use Eccube\Application;
@@ -34,7 +35,7 @@ class ProductPriorityEvent
     }
 
     /**
-     * 商品一覧画面おすすめ順ソート
+     * 商品一覧画面おすすめ順ソート.
      *
      * @param EventArgs $event
      */
@@ -56,7 +57,7 @@ class ProductPriorityEvent
     }
 
     /**
-     * 商品編集時, 商品並び順テーブルに登録されているカテゴリとの整合性を保つ
+     * 商品編集時, 商品並び順テーブルに登録されているカテゴリとの整合性を保つ.
      *
      * @param EventArgs $event
      */
@@ -70,7 +71,7 @@ class ProductPriorityEvent
     }
 
     /**
-     * 商品が削除された場合, 商品並び順テーブルに登録されているデータを削除する
+     * 商品が削除された場合, 商品並び順テーブルに登録されているデータを削除する.
      *
      * @param EventArgs $event
      */
@@ -84,7 +85,7 @@ class ProductPriorityEvent
     }
 
     /**
-     * カテゴリが削除された場合, 商品並び順テーブルに登録されているデータを削除する
+     * カテゴリが削除された場合, 商品並び順テーブルに登録されているデータを削除する.
      *
      * @param EventArgs $event
      */

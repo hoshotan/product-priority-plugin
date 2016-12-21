@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
 */
+
 namespace Plugin\ProductPriority\Controller;
 
 use Eccube\Application;
@@ -21,11 +22,12 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 class ProductPriorityController extends AbstractController
 {
     /**
-     * 商品並び順の一覧表示
+     * 商品並び順の一覧表示.
      *
      * @param Application $app
-     * @param Request $request
-     * @param null $categoryId null: 全商品, 1～: カテゴリ表示
+     * @param Request     $request
+     * @param null        $categoryId null: 全商品, 1～: カテゴリ表示
+     *
      * @return Response
      */
     public function index(Application $app, Request $request, $categoryId = null)
@@ -71,11 +73,12 @@ class ProductPriorityController extends AbstractController
     }
 
     /**
-     * 商品並び順の並び替えを行う
+     * 商品並び順の並び替えを行う.
      *
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
      * @param $categoryId
+     *
      * @return bool
      */
     public function move(Application $app, Request $request, $categoryId)
@@ -97,11 +100,12 @@ class ProductPriorityController extends AbstractController
     }
 
     /**
-     * 商品並び順の一括削除
+     * 商品並び順の一括削除.
      *
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
      * @param $categoryId
+     *
      * @return bool
      */
     public function delete(Application $app, Request $request, $categoryId)
@@ -135,10 +139,11 @@ class ProductPriorityController extends AbstractController
     }
 
     /**
-     * モーダル：商品検索
+     * モーダル：商品検索.
      *
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
+     *
      * @return Response
      */
     public function search(Application $app, Request $request)
@@ -174,11 +179,12 @@ class ProductPriorityController extends AbstractController
     }
 
     /**
-     * モーダル：商品並び順の登録
+     * モーダル：商品並び順の登録.
      *
      * @param Application $app
-     * @param Request $request
+     * @param Request     $request
      * @param $categoryId
+     *
      * @return bool
      */
     public function register(Application $app, Request $request, $categoryId)

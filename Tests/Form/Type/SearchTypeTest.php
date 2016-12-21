@@ -7,6 +7,7 @@
   * For the full copyright and license information, please view the LICENSE
   * file that was distributed with this source code.
   */
+
 namespace Plugin\ProductPriority\Tests\Form\Type;
 
 use Eccube\Tests\EccubeTestCase;
@@ -19,7 +20,7 @@ class SearchTypeTest extends EccubeTestCase
     /** @var array デフォルト値（正常系）を設定 */
     protected $formData = array(
         'search' => '商品コード',
-        'category_name' => 'カテゴリ名'
+        'category_name' => 'カテゴリ名',
     );
 
     public function setUp()

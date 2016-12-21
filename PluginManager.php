@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
 */
+
 namespace Plugin\ProductPriority;
 
 use Eccube\Entity\Master\ProductListOrderBy;
@@ -29,9 +30,7 @@ class PluginManager extends AbstractPluginManager
     {
         $this->migrationSchema($app, __DIR__.'/Resource/doctrine/migration', $config['code']);
 
-        /**
-         * mtb_product_list_order_byに"おすすめ順"を追加する
-         */
+        // mtb_product_list_order_byに"おすすめ順"を追加する.
         // idの最大値を取得
         $id = $app['orm.em']->createQueryBuilder()
             ->select('(COALESCE(MAX(plob.id), 0) + 1) AS max_id')

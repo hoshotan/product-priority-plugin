@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
 */
+
 namespace Plugin\ProductPriority\ServiceProvider;
 
 use Eccube\Common\Constant;
@@ -21,7 +22,7 @@ class ProductPriorityServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
-        /**
+        /*
          * Routing
          */
         // http, https判定
@@ -94,7 +95,7 @@ class ProductPriorityServiceProvider implements ServiceProviderInterface
         // 管理画面のルーティングにmount
         $app->mount('/'.trim($app['config']['admin_route'], '/').'/', $admin);
 
-        /**
+        /*
          * Form Types
          */
         $app['form.types'] = $app->share(
@@ -110,7 +111,7 @@ class ProductPriorityServiceProvider implements ServiceProviderInterface
             )
         );
 
-        /**
+        /*
          * Repository
          */
         $app['eccube.plugin.product_priority.repository.product_priority'] = $app->share(
@@ -126,19 +127,19 @@ class ProductPriorityServiceProvider implements ServiceProviderInterface
                 return $app['orm.em']->getRepository('Plugin\ProductPriority\Entity\Config');
             }
         );
-        /**
+        /*
          * Navi
          */
         $app['config'] = $app->share(
             $app->extend(
                 'config',
                 function ($config) {
-                    $addNavi['id'] = "admin_product_priority";
-                    $addNavi['name'] = "商品おすすめ順登録";
-                    $addNavi['url'] = "admin_product_priority";
+                    $addNavi['id'] = 'admin_product_priority';
+                    $addNavi['name'] = '商品おすすめ順登録';
+                    $addNavi['url'] = 'admin_product_priority';
                     $nav = $config['nav'];
                     foreach ($nav as $key => $val) {
-                        if ("product" == $val["id"]) {
+                        if ('product' == $val['id']) {
                             $nav[$key]['child'][] = $addNavi;
                         }
                     }

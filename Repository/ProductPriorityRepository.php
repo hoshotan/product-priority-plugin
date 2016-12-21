@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
 */
+
 namespace Plugin\ProductPriority\Repository;
 
 use Doctrine\ORM\EntityRepository;
@@ -48,8 +49,8 @@ class ProductPriorityRepository extends EntityRepository
 
         $array = array();
         foreach ($results as $result) {
-            $category_id = (int)current($result);
-            $count = (int)next($result);
+            $category_id = (int) current($result);
+            $count = (int) next($result);
             $array[$category_id] = $count;
         }
 
@@ -60,6 +61,7 @@ class ProductPriorityRepository extends EntityRepository
      * 対象カテゴリの並び順の最大値を返す.
      *
      * @param $categoryId
+     *
      * @return int
      */
     public function getMaxPriorityByCategoryId($categoryId)
@@ -71,20 +73,21 @@ class ProductPriorityRepository extends EntityRepository
             ->getQuery()
             ->getSingleScalarResult();
 
-        return (int)$max;
+        return (int) $max;
     }
 
     /**
-     * 並び順をカテゴリで検索する
+     * 並び順をカテゴリで検索する.
      *
      * @param Category|null $Category nullを指定した場合, 全ての商品(カテゴリID:0)の並び順を検索する
+     *
      * @return array 以下の連想配列を要素とした配列を返す
-     *      array(
-     *          'product_id' => xxx,
-     *          'category_id' => xxx,
-     *          'priority' => xxx,
-     *          'product_name' => xxx
-     *      );
+     *               array(
+     *               'product_id' => xxx,
+     *               'category_id' => xxx,
+     *               'priority' => xxx,
+     *               'product_name' => xxx
+     *               );
      */
     public function getPrioritiesByCategoryAsArray(Category $Category = null)
     {
@@ -110,8 +113,9 @@ class ProductPriorityRepository extends EntityRepository
      * 商品検索を行うクエリビルダを返す.
      * 並び順に登録されている商品は除外される.
      *
-     * @param null $search 商品ID/商品コード/商品名
+     * @param null          $search   商品ID/商品コード/商品名
      * @param Category|null $Category nullを指定した場合, 全ての商品(カテゴリID:0)の並び順を検索する
+     *
      * @return \Doctrine\ORM\QueryBuilder
      */
     public function getProductQueryBuilder($search = null, Category $Category = null)
@@ -166,7 +170,7 @@ class ProductPriorityRepository extends EntityRepository
     }
 
     /**
-     * 対象商品のカテゴリに紐付いていない並び順を削除する
+     * 対象商品のカテゴリに紐付いていない並び順を削除する.
      *
      * @param Product $Product
      */
@@ -206,7 +210,7 @@ class ProductPriorityRepository extends EntityRepository
     /**
      * おすすめ順ソートのクエリを構築する.
      *
-     * @param QueryBuilder $qb
+     * @param QueryBuilder  $qb
      * @param Category|null $Category
      */
     public function buildSortQuery(QueryBuilder $qb, Category $Category = null)
@@ -221,7 +225,7 @@ class ProductPriorityRepository extends EntityRepository
             ->setMaxResults(1)
             ->getSingleScalarResult();
 
-        /**
+        /*
          * c.rank * 2147483648 + pp.priority については以下を参照
          *
          * @link https://github.com/EC-CUBE/eccube-2_13/blob/master/data/class/pages/products/LC_Page_Products_List.php#L234
@@ -240,7 +244,7 @@ class ProductPriorityRepository extends EntityRepository
              0) AS HIDDEN sort_priority";
             $join = '(pct.product_id = pp.product_id AND pct.category_id = pp.category_id) OR (pct.product_id = pp.product_id AND pp.category_id = 0)';
         } else {
-            $select = "COALESCE(MAX(c.rank * 2147483648 + pp.priority), 0) AS HIDDEN sort_priority";
+            $select = 'COALESCE(MAX(c.rank * 2147483648 + pp.priority), 0) AS HIDDEN sort_priority';
             $join = '(pct.product_id = pp.product_id AND pct.category_id = pp.category_id)';
         }
 
@@ -266,7 +270,7 @@ class ProductPriorityRepository extends EntityRepository
             if ($join->getJoin() === 'p.ProductClasses') {
                 $joinProductClass = true;
                 break;
-            };
+            }
         }
 
         if (!$joinProductClass) {
@@ -311,6 +315,7 @@ class ProductPriorityRepository extends EntityRepository
      *
      * @param $productId
      * @param $categoryId
+     *
      * @return int
      */
     public function countProductCategory($productId, $categoryId)
@@ -326,6 +331,6 @@ class ProductPriorityRepository extends EntityRepository
             ->getQuery()
             ->getSingleScalarResult();
 
-        return (int)$count;
+        return (int) $count;
     }
 }
