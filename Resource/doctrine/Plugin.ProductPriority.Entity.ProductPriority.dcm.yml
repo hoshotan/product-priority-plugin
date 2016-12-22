@@ -12,5 +12,5 @@ Plugin\ProductPriority\Entity\ProductPriority:
     fields:
         priority:
             type: integer
-            nullable: true
+            nullable: false
     lifecycleCallbacks: {  }
