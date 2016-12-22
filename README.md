@@ -31,6 +31,3 @@
 - EC-CUBE 3.0.13以上
 - PHP5.3/5.4/5.5/5.6/7.0/7.1
 - PostgreSQL/MySQL
-
-## 更新履歴
-- 2017.01.xx v1.0.0 [release note](http://)
