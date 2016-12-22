@@ -1,7 +1,7 @@
 # おすすめ順登録プラグイン(商品並べ替えプラグイン)
 
 [![Build Status](https://travis-ci.org/EC-CUBE/product-priority-plugin.svg?branch=master)](https://travis-ci.org/EC-CUBE/product-priority-plugin)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/2c7579d7-f229-4dbe-a9bf-201ac5a732e1/mini.png)](https://insight.sensiolabs.com/projects/2c7579d7-f229-4dbe-a9bf-201ac5a732e1)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/7126b7f0-4e67-4aba-86cb-08d8214975fe/mini.png)](https://insight.sensiolabs.com/projects/7126b7f0-4e67-4aba-86cb-08d8214975fe)
 [![Coverage Status](https://coveralls.io/repos/github/EC-CUBE/product-priority-plugin/badge.svg?branch=master)](https://coveralls.io/github/EC-CUBE/product-priority-plugin?branch=master)
 
 ## 概要
