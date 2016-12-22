@@ -12,6 +12,7 @@
 namespace Plugin\ProductPriority\Form\Type;
 
 use Eccube\Application;
+use Eccube\Entity\Category;
 use Plugin\ProductPriority\Constant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -45,7 +46,7 @@ class CategoryType extends AbstractType
             'entity',
             array(
                 'class' => 'Eccube\Entity\Category',
-                'choice_label' => function ($Category) use ($countByCategory) {
+                'choice_label' => function (Category $Category) use ($countByCategory) {
                     $id = $Category->getId();
                     $name = $Category->getNameWithLevel();
                     $count = isset($countByCategory[$id]) ? $countByCategory[$id] : 0;
