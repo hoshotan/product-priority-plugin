@@ -1,0 +1,12 @@
+{
+    "name": "product priority plugin",
+    "description": "ec-cube3 product priority plugin demo site",
+    "website": "https://github.com/EC-CUBE/product-priority-plugin",
+    "repository": "https://github.com/EC-CUBE/product-priority-plugin",
+    "keywords": ["php", "ec", "e-commerce", "ec-cube", "plugin"],
+    "buildpacks": [
+        {
+            "url": "heroku/php"
+        }
+    ]
+}
