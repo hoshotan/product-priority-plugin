@@ -294,6 +294,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
             })
         });
     </script>
+    <script>
+        // 機能説明のツールチップを有効にする
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 {% endblock %}
 
 {% block main %}
@@ -301,7 +307,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header">
-                    <div class="box-title">商品おすすめ順登録</div>
+                    <div class="box-title">
+                        商品おすすめ順登録
+                        <span class="glyphicon glyphicon-question-sign"
+                              data-toggle="tooltip"
+                              data-placement="right"
+                              data-html="true"
+                              data-title="<p align='left'>カテゴリ毎に、おすすめする商品を登録できます。おすすめ商品を登録後、並び順をドラッグ＆ドロップで設定してください。"></span>
+                    </div>
                 </div>
                 <div class="box-body">
                     <div class="row">
@@ -313,7 +326,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                         <div class="col-md-2">
                             <div class="form-group">
                                 <button type="button" class="btn btn-default btn-block" data-toggle="modal"
-                                        data-target="#searchProductModal">商品登録
+                                        data-target="#searchProductModal">おすすめ商品登録
                                 </button>
                             </div>
                         </div>
